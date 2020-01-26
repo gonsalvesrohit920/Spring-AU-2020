@@ -13,7 +13,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [seller=" + seller + ", productId=" + productId + ", productNAme=" + productNAme + ", price="
+		return "Product [" productId=" + productId + ", productNAme=" + productNAme + ", price="
 				+ price + ", description=" + description + "]";
 	}
 
