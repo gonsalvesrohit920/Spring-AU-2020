@@ -5,15 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
+@NamedQuery(name=Product.GET_ALL_PRODUCTS, query="from Product") // Named Query
 @Entity
-@Table(name="products") 
+@Table(name="Products") 
 public class Product {
-
+	public static final String GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
+	
 	@Override
 	public String toString() {
-		return "Product [" productId=" + productId + ", productNAme=" + productNAme + ", price="
+		return "Product [seller=" + seller + ", productId=" + productId + ", productNAme=" + productNAme + ", price="
 				+ price + ", description=" + description + "]";
 	}
 
