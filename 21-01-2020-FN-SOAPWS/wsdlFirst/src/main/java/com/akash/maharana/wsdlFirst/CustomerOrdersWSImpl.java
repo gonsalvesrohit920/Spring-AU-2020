@@ -65,45 +65,46 @@ public class CustomerOrdersWSImpl implements CustomerOrdersPortType{
  		return response;
 	}
 
-	@SuppressWarnings("unlikely-arg-type")
+	@SuppressWarnings("unlikely-arg-type") 
 	@Override
-	public DeleteOrdersResponse deleteOrders(DeleteOrdersRequest deleteOrdersRequest) {
+	public DeleteOrdersResponse deleteOrders(DeleteOrdersRequest deleteOrdersRequest) { // DeleteOrder Handler
 		BigInteger customerId = deleteOrdersRequest.getCustomerId();
 		DeleteOrdersResponse deleteOrdersResponse = new DeleteOrdersResponse();
-		// The order that must be removed
+		
 		try {
-			List<Order> orders=customerOrders.get(customerId);
-			orders.remove(deleteOrdersRequest.getOrderId());
-			customerOrders.remove(customerId);
-			customerOrders.put(customerId, orders);
+
+			List<Order> orders=customerOrders.get(customerId); //get list of Customer Orders
+			orders.remove(deleteOrdersRequest.getOrderId()); // Delete order from the List
+			customerOrders.remove(customerId); // Remove the previous instance of orders for the customer
+			customerOrders.put(customerId, orders); // Add remaining orders again
 			
 			deleteOrdersResponse.setResult(true);
 		}
 		catch (Exception e) {
-			deleteOrdersResponse.setResult(false);
+			deleteOrdersResponse.setResult(false); // Incase Failed
 		}
 		return deleteOrdersResponse;
 	}
 
 	@Override
-	public UpdateOrdersResponse updateOrders(UpdateOrdersRequest updateOrdersRequest) {
+	public UpdateOrdersResponse updateOrders(UpdateOrdersRequest updateOrdersRequest) { // Update orders request Handler
 		
 		UpdateOrdersResponse updateOrdersResponse = new UpdateOrdersResponse();
 		try {
-		BigInteger customerId=updateOrdersRequest.getCustomerId();
-		Order order=updateOrdersRequest.getOrder();
-		// Update
-		List<Order> orders=customerOrders.get(customerId);
-		orders.remove(updateOrdersRequest.getOrderId());
-		orders.add(order);
-		customerOrders.remove(customerId);
-		customerOrders.put(customerId, orders);
-		
-		updateOrdersResponse.setResult(true);
-		}
+
+				BigInteger customerId=updateOrdersRequest.getCustomerId();
+				Order order=updateOrdersRequest.getOrder(); // Get New Order Object from request
+				List<Order> orders=customerOrders.get(customerId); //Get Customer orders
+				orders.remove(updateOrdersRequest.getOrderId());
+				orders.add(order); // Add new updated order
+				customerOrders.remove(customerId);
+				customerOrders.put(customerId, orders);
+				updateOrdersResponse.setResult(true);
+			}
 		catch (Exception e) {
-			// TODO: handle exception
-			updateOrdersResponse.setResult(false);
+
+				updateOrdersResponse.setResult(false);
+
 		}
 		
 		
