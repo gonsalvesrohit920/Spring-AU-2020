@@ -21,7 +21,7 @@ public class KafkaController {
 
 	}
 
-	@RequestMapping(value = "/publish")
+	@RequestMapping(value = "/publish") // Run the application on "localhost:9000/kafka/publish" to start sending
 	public void sendMessageToKafkaTopic() {
 
 		this.producer.sendMessage();
