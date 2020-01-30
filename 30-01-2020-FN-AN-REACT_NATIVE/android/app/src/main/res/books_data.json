@@ -1,0 +1,43 @@
+{
+    "romance" :[
+        {
+            "name"      :   "Half Girlfriend",
+            "author"    :   "Chetan Bhagat",
+            "image"     :   "half_girlfriend.jpg"
+        },
+
+        {
+            "name"      :   "More Than Words",
+            "author"    :   "Savio Avenicci",
+            "image"     :   "more_than_words.jpg"
+        }
+    ],
+
+    "thriller" :[
+        {
+            "name"      :   "Inferno",
+            "author"    :   "Dan Brown",
+            "image"     :   "inferno.jpg"
+        },
+
+        {
+            "name"      :   "If Tomorrow Comes",
+            "author"    :   "Sidney Sheldon",
+            "image"     :   "if_tomorrow_comes.jpg"
+        }
+    ],
+
+    "horror" :[
+        {
+            "name"      :   "The Shining",
+            "author"    :   "Stephen King",
+            "image"     :   "the_shining.jpg"
+        },
+
+        {
+            "name"      :   "It",
+            "author"    :   "Stephen King",
+            "image"     :   "it.jpg"
+        }
+    ]
+}
